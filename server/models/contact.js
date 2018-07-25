@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const Contact = mongoose.model('contacts', {
+const contacts = mongoose.model('contacts', {
   Physician_First_Name: {
     type: String,
     required: true,
@@ -21,4 +21,4 @@ const Contact = mongoose.model('contacts', {
   Recipient_Zip_Code: {}
 });
 
-module.exports = {Contact};
+module.exports = {contacts};

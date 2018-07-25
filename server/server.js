@@ -32,7 +32,7 @@ app.get('/search', (req, res) => {
   let nameFirst = { $regex: `^${req.query.firstName}`, $options: 'i' };
   let nameMiddle = { $regex: `^${req.query.middleName}`, $options: 'i' };
   let nameLast = { $regex: `^${req.query.lastName}`, $options: 'i' };
-  Contact.find({
+  contacts.find({
     Physician_First_Name: nameFirst,
     Physician_Middle_Name: nameMiddle,
     Physician_Last_Name: nameLast
@@ -59,7 +59,7 @@ app.get('/address', (req, res) => {
   let nameFirst = new RegExp(req.query.firstName, 'i');
   let nameMiddle = new RegExp(req.query.middleName, 'i');
   let nameLast = new RegExp(req.query.lastName, 'i');
-  Contact.findOne({
+  contacts.findOne({
     Physician_First_Name: nameFirst,
     Physician_Middle_Name: nameMiddle,
     Physician_Last_Name: nameLast
