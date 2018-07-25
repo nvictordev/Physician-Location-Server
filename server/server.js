@@ -45,7 +45,8 @@ app.get('/search', (req, res) => {
       return {
         firstName,
         middleName,
-        lastName
+        lastName,
+        'test': 'victor'
       }
     }))
   }, (e) => {
