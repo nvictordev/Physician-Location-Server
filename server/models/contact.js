@@ -22,6 +22,6 @@ let contactsSchema = new Schema({
   Recipient_Zip_Code: {}
 });
 
-let contacts = mongoose.model('contacts', contactsSchema);
+let Contact = mongoose.model('contacts', contactsSchema);
 
-module.exports = {contacts};
+module.exports = {Contact};
