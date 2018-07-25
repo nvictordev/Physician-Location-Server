@@ -24,6 +24,10 @@ const titleCase = (str) => {
   }
 };
 
+app.get('/', (req, res) => {
+  res.send('Thanks for checking. Nothing is here. Check other page')
+})
+
 app.get('/search', (req, res) => {
   let nameFirst = { $regex: `^${req.query.firstName}`, $options: 'i' };
   let nameMiddle = { $regex: `^${req.query.middleName}`, $options: 'i' };
