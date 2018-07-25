@@ -4,7 +4,7 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
-const {Contact} = require('./models/contact');
+const {contacts} = require('./models/contact');
 
 const app = express();
 const port = process.env.PORT || 5001;
