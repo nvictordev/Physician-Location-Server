@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const Contact = mongoose.model('conctacts', {
+const Contact = mongoose.model('contacts', {
   Physician_First_Name: {
     type: String,
     required: true,
