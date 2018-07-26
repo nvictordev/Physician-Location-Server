@@ -61,7 +61,7 @@ let schema = new mongoose.Schema({Physician_First_Name: 'string'});
 let contacts = mongoose.model('contacts', schema);
 
 app.get('/Physician_First_Name', (req, res) => {
-  Contact.find({Physician_First_Name:'Alan'}).then((name) => {
+  contacts.find({Physician_First_Name:'Alan'}).then((name) => {
     res.send({name})
   }, (e) => {
     res.status(400).send(e);
@@ -95,7 +95,7 @@ app.get('/address', (req, res) => {
 });
 
 app.use((req, res, next) => {
-  res.status(404).send('<h2 align=center> Page Not Found!</h2>');
+  res.status(404).send('Page Not Found!');
   next();
 });
 
