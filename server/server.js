@@ -61,8 +61,8 @@ let schema = new mongoose.Schema({Physician_First_Name: 'string'});
 let contacts = mongoose.model('contacts', schema);
 
 app.get('/Physician_First_Name', (req, res) => {
-  contacts.find({Physician_First_Name:'Alan'}).then((name) => {
-    res.send({name})
+  contacts.find({Physician_First_Name:'Alan'}).then((Physician_First_Name) => {
+    res.send({Physician_First_Name})
   }, (e) => {
     res.status(400).send(e);
   });
