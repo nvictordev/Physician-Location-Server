@@ -3,6 +3,7 @@ require('./config/config');
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+let {mongoose} = require('./db/mongoose');
 
 const {Contact} = require('./models/contact');
 
@@ -54,6 +55,17 @@ app.get('/search', (req, res) => {
   }).catch(e => {
     res.status(400).send(e);
   })
+});
+
+let schema = new mongoose.Schema({Physician_First_Name: 'string'});
+let contacts = mongoose.model('contacts', schema);
+
+app.get('/name', (req, res) => {
+  Contact.find({Physician_First_Name:'Alan'}).then((name) => {
+    res.send({name})
+  }, (e) => {
+    res.status(400).send(e);
+  });
 });
 
 app.get('/address', (req, res) => {
