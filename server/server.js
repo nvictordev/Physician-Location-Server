@@ -3,12 +3,12 @@ require('./config/config');
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-let {mongoose} = require('./db/mongoose');
 
+const {mongoose} = require('./db/mongoose');
 const {Contact} = require('./models/contact');
 
 const app = express();
-const port = process.env.PORT || 5001;
+const port = process.env.PORT;
 app.use(cors())
 app.use(bodyParser.json());
 
@@ -46,8 +46,7 @@ app.get('/search', (req, res) => {
       return {
         firstName,
         middleName,
-        lastName,
-        'test': 'victor'
+        lastName
       }
     }))
   }, (e) => {
@@ -55,17 +54,6 @@ app.get('/search', (req, res) => {
   }).catch(e => {
     res.status(400).send(e);
   })
-});
-
-let schema = new mongoose.Schema({Physician_First_Name: 'string'});
-let contacts = mongoose.model('contacts', schema);
-
-app.get('/Physician_First_Name', (req, res) => {
-  contacts.find({}).then((Physician_First_Name) => {
-    res.send({Physician_First_Name})
-  }, (e) => {
-    res.status(400).send(e);
-  });
 });
 
 app.get('/address', (req, res) => {
@@ -96,7 +84,6 @@ app.get('/address', (req, res) => {
 
 app.use((req, res, next) => {
   res.status(404).send('Page Not Found!');
-  next();
 });
 
 app.listen(port, () => {

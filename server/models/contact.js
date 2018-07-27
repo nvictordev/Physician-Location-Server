@@ -1,8 +1,5 @@
 const mongoose = require('mongoose');
 
-mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://heroku_n26zxzb5:6pfk10897ivggg6f6k6br9g331@ds147361.mlab.com:47361/heroku_n26zxzb5');
-
 const Contact = mongoose.model('Contact', {
   Physician_First_Name: {
     type: String,
